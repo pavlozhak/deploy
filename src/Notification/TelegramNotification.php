@@ -42,9 +42,9 @@ class TelegramNotification {
         $config = Config::get_config();
         $prepared_message = self::prepare_message($message);
 
-        $requestFactory = new Http\Factory\Guzzle\RequestFactory();
-        $streamFactory = new Http\Factory\Guzzle\StreamFactory();
-        $client = new Http\Adapter\Guzzle6\Client();
+        $requestFactory = new \Http\Factory\Guzzle\RequestFactory();
+        $streamFactory = new \Http\Factory\Guzzle\StreamFactory();
+        $client = new \Http\Adapter\Guzzle6\Client();
 
         $apiClient = new ApiClient($requestFactory, $streamFactory, $client);
         $bot = new BotApi($config->notification->channels->telegram->bot_token, $apiClient, new BotApiNormalizer());
