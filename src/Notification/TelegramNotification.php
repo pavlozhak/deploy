@@ -25,7 +25,7 @@ class TelegramNotification {
 
 
         foreach ($message->payload->commits as $commit) {
-            $notify_body .= "✅" . $commit->message . PHP_EOL;
+            $notify_body .= "✅" . $commit->message . PHP_EOL . PHP_EOL;
             $notify_body .= 'Added: <i>' . count($commit->added) . PHP_EOL
                 .'</i>modified: <i>' . count($commit->modified) . PHP_EOL
                 .'</i>removed: <i>'.count($commit->removed) . PHP_EOL
