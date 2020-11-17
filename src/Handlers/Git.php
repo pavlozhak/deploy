@@ -18,16 +18,7 @@ class Git {
 
     public function __construct() {
         $this->config = Config::get_config();
-        $this->check_github_ip();
         $this->get_payload();
-    }
-
-    public function check_github_ip() {
-        if(!in_array($_SERVER['REMOTE_ADDR'], self::GIT_IP)) {
-            DeployException::set_exception(Git::class, 'This does not appear to be a valid requests from Github');
-        }
-
-        return TRUE;
     }
 
     public function get_payload() {
