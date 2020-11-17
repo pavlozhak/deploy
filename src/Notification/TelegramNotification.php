@@ -14,7 +14,7 @@ use TgBotApi\BotApiBase\Method\SendMessageMethod;
 class TelegramNotification {
 
     public static function prepare_message(stdClass $message) {
-        $notify_header = "U+1F680" . " <b>#St-Dev Deploy</b>" . PHP_EOL . PHP_EOL;
+        $notify_header = "🚀" . " <b>#St-Dev Deploy</b>" . PHP_EOL . PHP_EOL;
         $notify_footer = "<b>Deploy end</b>";
 
         $notify_body = 'The Github user <a href="https://github.com/'
@@ -25,7 +25,7 @@ class TelegramNotification {
 
 
         foreach ($message->payload->commits as $commit) {
-            $notify_body .= "U+2705" . $commit->message . PHP_EOL;
+            $notify_body .= "✅" . $commit->message . PHP_EOL;
             $notify_body .= 'Added: <i>' . count($commit->added) . PHP_EOL
                 .'</i>modified: <i>' . count($commit->modified) . PHP_EOL
                 .'</i>removed: <i>'.count($commit->removed) . PHP_EOL
