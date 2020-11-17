@@ -32,7 +32,7 @@ class Git {
 
     public function update() {
         foreach ($this->config->git->endpoints as $endpoint) {
-            if($this->payload->repository->owner->html_url == self::GIT_URL . $endpoint->repo && $this->payload->ref == self::GIT_REFS . $endpoint->branch) {
+            if($this->payload->repository->full_name == $endpoint->repo && $this->payload->ref == self::GIT_REFS . $endpoint->branch) {
                 ob_start();
                 passthru($endpoint->run);
                 $output = ob_get_contents();
