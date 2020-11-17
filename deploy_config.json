@@ -1,0 +1,25 @@
+{
+  "notification": {
+    "send": true,
+    "channels": {
+      "telegram": {
+        "bot_token": "1457073334:AAH1OE8RVNNpOE0QYMclsPLF2LHMePZ9s3Y",
+        "chat_id": "220766802"
+      }
+    }
+  },
+  "git": {
+    "endpoints": [
+      {
+        "repo": "pavlozhak/admin-mozaika",
+        "branch": "dev",
+        "run": "./bash/update_dev_script.sh"
+      },
+      {
+        "repo": "pavlozhak/admin-mozaika",
+        "branch": "master",
+        "run": "./bash/update_master_script.sh"
+      }
+    ]
+  }
+}
