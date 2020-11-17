@@ -14,7 +14,7 @@ use TgBotApi\BotApiBase\Method\SendMessageMethod;
 class TelegramNotification {
 
     public static function prepare_message(stdClass $message) {
-        $notify_header = "🚀" . " <b>#St-Dev Deploy</b>" . PHP_EOL . PHP_EOL;
+        $notify_header = "🚀" . " <b>***** St-Dev Deploy *****</b>" . "🚀" . PHP_EOL . PHP_EOL;
         $notify_footer = "<b>Deploy end</b>";
 
         $notify_body = 'The Github user <a href="https://github.com/'
