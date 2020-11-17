@@ -18,7 +18,7 @@ class Git {
 
     public function __construct() {
         $this->config = Config::get_config();
-        $this->check_github_ip();
+        //$this->check_github_ip();
         $this->get_payload();
     }
 
