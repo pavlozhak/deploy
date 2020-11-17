@@ -32,6 +32,10 @@ class Git {
 
     public function update() {
         foreach ($this->config->git->endpoints as $endpoint) {
+
+            var_dump("Payload: " . $this->payload->repository->full_name . " Endpoint: " . $endpoint->repo);
+            var_dump("Payload: " . $$this->payload->ref . " Endpoint: " . self::GIT_REFS . $endpoint->branch);
+
             if($this->payload->repository->full_name == $endpoint->repo && $this->payload->ref == self::GIT_REFS . $endpoint->branch) {
                 ob_start();
                 passthru($endpoint->run);
