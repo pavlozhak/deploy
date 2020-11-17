@@ -33,20 +33,19 @@ class Git {
     public function update() {
         foreach ($this->config->git->endpoints as $endpoint) {
             if($this->payload->repository->full_name == $endpoint->repo) {
-                if(!$this->payload->ref == self::GIT_REFS . $endpoint->branch) {
-                    continue;
-                }
-                ob_start();
-                passthru($endpoint->run);
-                $output = ob_get_contents();
-                ob_end_clean();
+                if($this->payload->ref == self::GIT_REFS . $endpoint->branch) {
+                    ob_start();
+                    passthru($endpoint->run);
+                    $output = ob_get_contents();
+                    ob_end_clean();
 
-                if($this->config->notification->send) {
-                    $message = new stdClass();
-                    $message->payload = $this->payload;
-                    $message->output = $output;
+                    if($this->config->notification->send) {
+                        $message = new stdClass();
+                        $message->payload = $this->payload;
+                        $message->output = $output;
 
-                    TelegramNotification::send_message($message);
+                        TelegramNotification::send_message($message);
+                    }
                 }
             }
             else {
