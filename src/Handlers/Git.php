@@ -18,7 +18,7 @@ class Git {
 
     public function __construct() {
         $this->config = Config::get_config();
-        //$this->check_github_ip();
+        $this->check_github_ip();
         $this->get_payload();
     }
 
@@ -31,11 +31,12 @@ class Git {
     }
 
     public function get_payload() {
-        if(empty($_POST['payload'])) {
+        $rawPost = file_get_contents('php://input');
+        if(empty($rawPost)) {
             DeployException::set_exception(Git::class, 'Empty payload');
         }
 
-        $this->payload = json_decode($_POST['payload'], FALSE);
+        $this->payload = json_decode($rawPost, FALSE);
     }
 
     public function update() {
