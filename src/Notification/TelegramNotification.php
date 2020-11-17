@@ -52,7 +52,7 @@ class TelegramNotification {
 
         $userId = $config->notification->channels->telegram->chat_id;
 
-        $bot->send(SendMessageMethod::create($userId, $prepared_message));
+        $bot->send(SendMessageMethod::create($userId, $prepared_message, array("parse_mode" => "HTML")));
     }
 
 }
