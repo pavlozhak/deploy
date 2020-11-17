@@ -31,6 +31,7 @@ class Git {
     }
 
     public function update() {
+        var_dump($this->payload);
         foreach ($this->config->git->endpoints as $endpoint) {
             if($this->payload->html_url == self::GIT_URL . $endpoint->repo && $this->payload->ref == self::GIT_REFS . $endpoint->branch) {
                 ob_start();
