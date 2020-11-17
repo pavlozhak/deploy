@@ -51,8 +51,9 @@ class TelegramNotification {
         $bot = new BotApi($config->notification->channels->telegram->bot_token, $apiClient, new BotApiNormalizer());
 
         $userId = $config->notification->channels->telegram->chat_id;
-
-        $bot->send(SendMessageMethod::create($userId, $prepared_message, array("parse_mode" => "HTML")));
+        $m = SendMessageMethod::create($userId, $prepared_message);
+        $m->parseMode = 'HTML';
+        $bot->send($m);
     }
 
 }
